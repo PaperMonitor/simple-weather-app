@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Form  = () => {
+const Form  = props => {
     return (
         <form>
-            <input type="text"></input>
+            <input 
+            type="text" 
+            value={props.value}
+            onChange={props.change}
+            placeholder="Type in city name"
+            />
             <button>Search</button>
         </form>
     )

@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Form from './Form'
 import Result from './Result'
 
-function App() {
+class App extends Component {
+
+  state = {
+    value: "",
+    date: "",
+    city: "",
+    sunrise: "",
+    sunste: "",
+    temp: "",
+    pressure: "",
+    wind: "",
+    error: "",
+  }
+
+  handleInputChange = (e) => {
+    this.setState({
+      value: e.target.value
+    })
+  }
+
+  render (){
   return (
     <div className="App">
-      <Form />
+      <Form value={this.state.value} change={this.handleInputChange} />
       <Result />
     </div>
   );
+  }
 }
 
 export default App;
