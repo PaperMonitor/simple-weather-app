@@ -3,6 +3,9 @@ import './App.css';
 import Form from './Form'
 import Result from './Result'
 
+//API Key
+const APIKEY = '3e959ffbfde12c0eadf77551db611580';
+
 class App extends Component {
 
   state = {
@@ -14,7 +17,7 @@ class App extends Component {
     temp: "",
     pressure: "",
     wind: "",
-    err: "",
+    err: false,
   }
 
   handleInputChange = (e) => {
@@ -25,7 +28,7 @@ class App extends Component {
 
   handleCitySubmit = (e) => {
     e.preventDefault();
-    const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=3e959ffbfde12c0eadf77551db611580&units=metric`
+    const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=${APIKEY}&units=metric`
 
     fetch(API)
     .then(response => {
@@ -35,7 +38,11 @@ class App extends Component {
       throw Error("Sorry, couldn't make it")
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      this.setState({
+        error: false
+      })
+    })
     .catch(err => console.log(err))
   }
 
