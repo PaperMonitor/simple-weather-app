@@ -2,6 +2,7 @@ import React from 'react'
 
 const Form  = props => {
     return (
+
         <form onSubmit={props.submit}>
             <input 
             type="text" 
@@ -11,6 +12,7 @@ const Form  = props => {
             />
             <button>Search</button>
         </form>
+        
     )
 }
 

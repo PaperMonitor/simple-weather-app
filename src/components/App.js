@@ -6,8 +6,8 @@ import Result from './Result'
 //API Key
 const APIKEY = '3e959ffbfde12c0eadf77551db611580';
 
-class App extends Component {
 
+class App extends Component {
   state = {
     value: "",
     date: "",
@@ -43,7 +43,12 @@ class App extends Component {
         error: false
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err);
+      this.setState({
+        error: true
+      })  
+    })
   }
 
   render (){
