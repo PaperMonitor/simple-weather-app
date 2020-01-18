@@ -39,15 +39,24 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({
-        error: false
-      })
+      const time = new Date().toLocalString()
+      this.setState(state => ({
+        err: false,
+        date: time,
+        city: state.value,
+        sunrise: data.sys.sunrise,
+        sunste: data.sys.sunset,
+        temp: data.main.temp,
+        pressure: data.main.pressure,
+        wind: data.wind,
+      }))
     })
     .catch(err => {
       console.log(err);
-      this.setState({
-        error: true
-      })  
+      this.setState(state => ({
+        err: true,
+        city: this.state.value
+      }))
     })
   }
 
@@ -59,7 +68,7 @@ class App extends Component {
       change={this.handleInputChange}
       submit={this.handleCitySubmit}
       />
-      <Result />
+      <Result error={this.state.err} />
     </div>
   );
   }
