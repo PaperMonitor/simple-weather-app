@@ -39,13 +39,13 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      const time = new Date().toLocalString()
+      const time = new Date().toLocaleString()
       this.setState(state => ({
         err: false,
         date: time,
         city: state.value,
         sunrise: data.sys.sunrise,
-        sunste: data.sys.sunset,
+        sunset: data.sys.sunset,
         temp: data.main.temp,
         pressure: data.main.pressure,
         wind: data.wind.speed,

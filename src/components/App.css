@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.App  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.App form {
+    margin: 20px auto;
+}
+
+div.App form input {
+    padding: 8px 20px;
+}
+
+div.App form button {
+    padding: 8px 20px;
+}
+
+div.weatherResult {
+    margin: 0 auto;
+}

@@ -6,8 +6,8 @@ const Result  = props => {
     let content = null;
 
     if(!err && city){
-        const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString()
-        const sunsetTime = new Date(sunset * 1000).toLocaleTimeString()
+        const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
+        const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
         content = (
             <div>
                 <h3>Searching results for <strong>{city}</strong></h3>
