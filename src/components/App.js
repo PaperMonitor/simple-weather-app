@@ -48,14 +48,14 @@ class App extends Component {
         sunste: data.sys.sunset,
         temp: data.main.temp,
         pressure: data.main.pressure,
-        wind: data.wind,
+        wind: data.wind.speed,
       }))
     })
     .catch(err => {
       console.log(err);
-      this.setState(state => ({
+      this.setState(prevState => ({
         err: true,
-        city: this.state.value
+        city: prevState.value
       }))
     })
   }
@@ -68,7 +68,7 @@ class App extends Component {
       change={this.handleInputChange}
       submit={this.handleCitySubmit}
       />
-      <Result error={this.state.err} />
+      <Result weather={this.state} />
     </div>
   );
   }
