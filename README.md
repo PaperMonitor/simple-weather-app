@@ -18,3 +18,5 @@ Enter desired city name and you'll receive following data:
 - sunset time
 - pressure 
 - wind speed
+
+Also, there's a live input check within the form using componentDidUpdate.
