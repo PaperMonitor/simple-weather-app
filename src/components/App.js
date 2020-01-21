@@ -26,8 +26,44 @@ class App extends Component {
     })
   }
 
-  handleCitySubmit = (e) => {
-    e.preventDefault();
+  // handleCitySubmit = (e) => {
+  //   e.preventDefault();
+  //   const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=${APIKEY}&units=metric`
+
+  //   fetch(API)
+  //   .then(response => {
+  //     if(response.ok) {
+  //       return response
+  //     }
+  //     throw Error("Sorry, couldn't make it")
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     const time = new Date().toLocaleString()
+  //     this.setState(state => ({
+  //       err: false,
+  //       date: time,
+  //       city: state.value,
+  //       sunrise: data.sys.sunrise,
+  //       sunset: data.sys.sunset,
+  //       temp: data.main.temp,
+  //       pressure: data.main.pressure,
+  //       wind: data.wind.speed,
+  //     }))
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //     this.setState(prevState => ({
+  //       err: true,
+  //       city: prevState.value
+  //     }))
+  //   })
+  // }
+
+  componentDidUpdate(prevProps, prevState){
+
+
+    if(prevState.value !== this.state.value) {
     const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=${APIKEY}&units=metric`
 
     fetch(API)
@@ -59,6 +95,10 @@ class App extends Component {
       }))
     })
   }
+    }
+  
+  
+
 
   render (){
   return (
@@ -66,7 +106,6 @@ class App extends Component {
       <Form 
       value={this.state.value} 
       change={this.handleInputChange}
-      submit={this.handleCitySubmit}
       />
       <Result weather={this.state} />
     </div>
